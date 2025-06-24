@@ -10,21 +10,6 @@ This is a simple web application that allows users to upload text files and encr
 
 ---
 
-## 📂 Project Structure
-
-```
-
-HillCipher/
-├── App.java                 # Hill Cipher logic: encryption, decryption, and matrix operations
-├── FileCipherServer.java   # Java HTTP server handling multipart form requests
-├── index.html              # Simple frontend UI
-├── script.js               # JavaScript for handling file uploads and responses
-├── style.css               # Optional styles
-
-````
-
----
-
 ## 🚀 How to Run
 
 ### 1. Compile and Start the Server
