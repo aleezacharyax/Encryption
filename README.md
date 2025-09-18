@@ -1,61 +1,128 @@
-# Hill Cipher Encryption and Decryption
 
-This project implements the Hill Cipher encryption and decryption algorithm in Java. The Hill Cipher is a polygraphic substitution cipher based on linear algebra.
+Sure! Here's a detailed and clean **README.md** for your Hill Cipher File Encryption/Decryption project using a Java HTTP server and HTML/JS frontend:
 
-## Features
+---
 
-- Encrypts plaintext using a key matrix.
-- Prints the inverse of the  key matrix
-- Decrypts ciphertext using the inverse of the key matrix.
-- Handles input text and key matrix from the user.
+```markdown
+# 🔐 Hill Cipher File Encryption/Decryption Web App
 
-## Getting Started
+This is a simple web application that allows users to upload text files and encrypt or decrypt them using the **Hill Cipher** algorithm. The backend is a Java HTTP server, and the frontend is written in HTML and JavaScript.
 
-### Prerequisites
+---
 
-- Java Development Kit (JDK) installed on your machine.
-- A Java IDE or text editor (e.g., IntelliJ IDEA, Eclipse, VS Code , NeoVim).
+## 🚀 How to Run
 
-### Running the Program
+### 1. Compile and Start the Server
 
-1. Clone the repository or download the source code.
-2. Open the project in your preferred Java IDE or text editor.
-3. Compile and run the `App.java` file.
+Make sure you're in the folder with `App.java` and `FileCipherServer.java`.
 
-### Example Usage
+```bash
+javac App.java FileCipherServer.java
+java FileCipherServer
+````
 
-1. The program will prompt you to enter the size of the key matrix (rows and columns).
-2. Enter the elements of the key matrix.
-3. Enter the text to encrypt.
-4. The program will display the encrypted text, the inverse key matrix, and the decrypted text.
+Server will start at:
+📍 `http://localhost:8080`
 
-### Sample Output
-``` rust
-====================================================== 
+---
 
-Welcome to the Hill Cipher Encryption and Decryption:
+### 2. Launch the Frontend
 
-Enter the size of the key row size: 3
-Enter the size of the key column size: 3 
-Enter the elements of the key matrix: 
-Enter the element at position [0, 0]: 2 
-Enter the element at position [0, 1]: 4 
-Enter the element at position [0, 2]: 5 
-Enter the element at position [1, 0]: 9 
-Enter the element at position [1, 1]: 2 
-Enter the element at position [1, 2]: 1 
-Enter the element at position [2, 0]: 3 
-Enter the element at position [2, 1]: 17 
-Enter the element at position [2, 2]: 7
-Enter the text to encrypt: ACB 
-Encrypted Text: NFP
-Inverse Key Matrix: 
-15 17 20 
-20 9  17 
-9  3  2 
-Decrypted Text: ACB
+You can open the frontend using a local file server or directly from your file system.
+
+#### Option A: Open from File Explorer
+
+* Open `index.html` in your browser.
+* Example: `file:///Users/yourname/HillCipher/index.html`
+
+#### Option B: Use Live Server (VS Code or Python)
+
+Using Python:
+
+```bash
+cd HillCipher
+python3 -m http.server 5500
 ```
-### License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+Then go to:
+📍 `http://localhost:5500/index.html`
 
+---
+
+## ✅ Features
+
+* Upload any `.txt` file
+* Input a 3x3 Hill Cipher key matrix
+* Choose to Encrypt or Decrypt
+* Download the processed file as `output.txt`
+
+---
+
+## 🧠 Hill Cipher Key Format
+
+Matrix format (must be 3x3), comma-separated:
+
+```
+6,24,1;
+13,16,10;
+20,17,15
+```
+
+Each row is separated by `;`, and each number by `,`.
+
+---
+
+## 🛠️ Dependencies
+
+* Java 8 or higher
+* Modern web browser (Chrome, Firefox, Edge)
+
+---
+
+## 🧪 Test Example
+
+Try this in browser console:
+
+```js
+const formData = new FormData();
+formData.append("file", new Blob(["HELLO"], { type: "text/plain" }), "test.txt");
+formData.append("keyMatrix", "6,24,1;13,16,10;20,17,15");
+
+fetch("http://localhost:8080/encrypt", {
+  method: "POST",
+  body: formData
+})
+.then(r => r.blob())
+.then(blob => {
+  const url = URL.createObjectURL(blob);
+  window.open(url); // shows output
+});
+```
+
+---
+
+## ❗ Troubleshooting
+
+* Ensure Java server is running before submitting the form
+* Use valid 3x3 matrix for Hill Cipher
+* Browser must allow localhost communication (disable extensions if blocked)
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+## ✍️ Author
+
+Aleez Acharya
+Feel free to contribute or reach out for improvements!
+
+```
+
+---
+
+Let me know if you'd like me to create the actual `README.md` file for you, or convert this into Markdown visually for GitHub.
+```
